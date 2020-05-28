@@ -12,9 +12,13 @@ To upload to coursera you need to provide a zip of the directory (and all its co
 
 ## Things of note
 
+## build.sh
+
+Somewhat over engineered way to call the docker build process
+
 ### manifest.json
 
-Used by the coursera docker build tool.
+Used by the coursera docker build tool. Note that the name of the project in the build.sh and here is different. Make sure that's always the case to stop any namespace collisions in your docker images manifest when working locally
 
 ### reverse-proxy.conf
 
@@ -37,7 +41,7 @@ docker run -p 8888:8000 <name_image>
 ```
 
 ```
-docker run -p 8888:8000 uol-awd:dev
+docker run -p 8888:8000 coursera_master:dev
 ```
 
 Access the app at root of localhost:8888 for the Visual Studio interface. Add the path as defined in the
