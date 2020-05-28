@@ -1,5 +1,5 @@
 {
-  "name": "uol-awd",
+  "name": "uol-advanced_web_dev",
   "httpPort": 8000,
   "mounts": [
     {

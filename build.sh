@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker build -t "uol-awd:dev" .
+docker build -t "coursera_master:dev" .
