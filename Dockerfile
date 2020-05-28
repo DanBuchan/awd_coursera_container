@@ -53,8 +53,11 @@ ENV VSCODE_EXTENSIONS "/home/coder/.local/share/code-server/extensions"
 RUN mkdir -p ${VSCODE_USER}
 
 # Setup Python Extension
-RUN mkdir -p ${VSCODE_EXTENSIONS}/python \
-    && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-python/vsextensions/python/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/python extension
+# RUN mkdir -p ${VSCODE_EXTENSIONS}/python \
+#    && curl -JLs --retry 5 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-python/vsextensions/python/latest/vspackage | bsdtar --strip-components=1 -xf - -C ${VSCODE_EXTENSIONS}/python extension
+RUN mkdir -p ${VSCODE_EXTENSIONS}/python
+COPY ./download/ms-python.python-2020.5.80290.vsix ${VSCODE_EXTENSIONS}/python
+RUN bsdtar --strip-components=1 -xf ${VSCODE_EXTENSIONS}/python/ms-python.python-2020.5.80290.vsix -C ${VSCODE_EXTENSIONS}/python extension
 
 COPY index.html /home/travis/build/codercom/code-server/packages/server/build/web/
 
