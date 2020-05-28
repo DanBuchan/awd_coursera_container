@@ -30,8 +30,13 @@ sh build.sh
 ```
 
 ## Run and access
+
 ```
 docker run -p 8888:8000 <name_image>
 ```
 
-Access the app at root of localhost:8000 for the Visual Studio interface. Add the path as defined in the 
+```
+docker run -p 8888:8000 uol-awd:dev
+```
+
+Access the app at root of localhost:8888 for the Visual Studio interface. Add the path as defined in the

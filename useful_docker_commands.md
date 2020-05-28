@@ -11,7 +11,7 @@ docker run --publish 8000:8080 --name bb bulletinboard:1.0
 
 docker run --publish INPORT:OUTPORT --name [NAME] [CONTAINER NAME:TAG]
 --detach if you want this daemonised
--t allocate tty for interactivyt and don't halt on completed commands (don't immediately exit)
+-t allocate tty for interactivity and don't halt on completed commands (don't immediately exit)
 
 # List all conatiners
 
