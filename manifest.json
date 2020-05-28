@@ -1,0 +1,9 @@
+{
+  "name": "uol-awd",
+  "httpPort": 8000,
+  "mounts": [
+    {
+      "path": "/home/awduser/work"
+    }
+  ]
+}
