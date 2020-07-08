@@ -12,6 +12,10 @@ successfully build must also be run through their build tool to check for safety
 
 To upload to coursera you need to provide a zip of the directory (and all its contents) that contains the `Dockerfile`, `zip -r name.zip .`. Note that you should make the zip file inside directory that contains the dockerfile, don't zip the containing directory as the coursera docker build process assumes the `Dockerfile` is in the vary root of the zip.
 
+When you configure your container on the Coursera Labs Manager page make sure to change the http port to 8000, from the default 8888.
+
+To build a new lab fork the project in git hub and make the edits to the dockerfile that your need
+
 ## Things of note
 
 ## build.sh
@@ -43,7 +47,20 @@ docker run -p 8888:8000 <name_image>
 ```
 
 ```
-docker run -p 8888:8000 coursera_master:dev
+docker run -p 8888:8000 coursera_test:dev
 ```
 
 Access the app at root of localhost:8888 for the Visual Studio interface. Add the path as defined in the
+
+# Workflow
+
+1. Fork this repo to your own container repo
+2. Edit the dockerfile to your hearts content
+3. Edit the manifest appropriately
+4. Build it: sh build.sh
+5. Run and access it (i.e. docker run -p 8888:8000 coursera_test:dev)
+6. Run run-lab/run.sh to ensure it passes the docker requirements
+   ../coursera-labs/run-lab/run.sh build ./
+7. zip the whole directory containing the dockerfile using 'zip -r'
+8. Upload to coursera labs, follow their instuctions
+9. Notably: Configure your lab on the right port and add the files you want to persist. Also ensure the port number is switched from 8888 to 8000
